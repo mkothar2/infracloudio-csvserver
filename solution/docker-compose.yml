@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  csvserver:
+    build: .
+    ports:
+      - "9393:9300"
+  prom:
+    image: prom/prometheus:v2.22.0
+    ports:
+      - "9090:9090"

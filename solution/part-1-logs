@@ -1,0 +1,20 @@
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# cat > gencsv.sh
+#!/bin/bash
+if [ -f "inputFile" ]; then
+  rm -rf inputFile
+fi
+for ((i=0 ; i < $1 ; i++))
+do
+   echo "$i, $RANDOM" >> inputFile
+done
+
+chmod -R 755 inputFile
+^C
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# 
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# 
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# chmod 755 gencsv.sh
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# ./gencsv.sh 10
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# cp inputFile /csvserver/inputdata
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# export CSVSERVER_BORDER=Orange
+]0;@cbf5d203f986:/csvserver[root@cbf5d203f986 csvserver]# ./csvserver 
+2021/12/20 13:20:25 listening on ****
